@@ -1,0 +1,183 @@
+/* ------------------------------------------------------------------ */
+/* Landing page — hero section                                         */
+/* ------------------------------------------------------------------ */
+
+.landing-hero {
+    --lh-green: #4a9b78;
+    --lh-green-dark: #2d7a5a;
+    --lh-red: #d04a3c;
+
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+}
+
+.landing-hero .lh-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #e6f4ee;
+    border: 1px solid #c9e6d9;
+    color: var(--lh-green-dark);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    border-radius: 999px;
+    margin-bottom: 2.25rem;
+}
+
+.landing-hero .lh-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--lh-green);
+}
+
+.landing-hero .lh-title {
+    font-family: var(--font-body);
+    font-size: clamp(2.5rem, 6vw, 4.25rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 1.75rem;
+}
+
+.landing-hero .lh-title span {
+    display: block;
+    color: var(--lh-green);
+}
+
+.landing-hero .lh-subtitle {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: var(--ink-muted);
+    max-width: 700px;
+    margin: 0 auto 2.75rem;
+}
+
+.landing-hero .lh-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-bottom: 4.5rem;
+}
+
+.landing-hero .lh-btn {
+    display: inline-block;
+    background: var(--ink);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 1.15rem 2.25rem;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.landing-hero .lh-btn:hover { background: var(--ink-soft); }
+
+/* Dashboard preview window ------------------------------------------ */
+
+.landing-hero .lh-window {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 1.75rem;
+    text-align: left;
+}
+
+.landing-hero .lh-dots {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.landing-hero .lh-dots span {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+
+.landing-hero .lh-dots span:nth-child(1) { background: #e8a0a0; }
+.landing-hero .lh-dots span:nth-child(2) { background: #f0c878; }
+.landing-hero .lh-dots span:nth-child(3) { background: #a8dcc8; }
+
+.landing-hero .lh-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.landing-hero .lh-card {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.landing-hero .lh-stat { padding: 1.4rem 1.6rem; }
+
+.landing-hero .lh-stat-label {
+    font-size: 1rem;
+    color: var(--ink-muted);
+    margin-bottom: 0.6rem;
+}
+
+.landing-hero .lh-stat-value {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.35rem;
+}
+
+.landing-hero .lh-stat-note { font-size: 1rem; color: var(--ink-faint); }
+.landing-hero .lh-stat-note.is-down { color: var(--lh-red); }
+.landing-hero .lh-stat-note.is-up { color: var(--lh-green); }
+
+.landing-hero .lh-bars {
+    padding: 1.5rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.landing-hero .lh-bar-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.landing-hero .lh-bar-label {
+    text-align: right;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+}
+
+.landing-hero .lh-track {
+    height: 12px;
+    background: var(--border-soft);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.landing-hero .lh-fill {
+    height: 100%;
+    border-radius: 999px;
+}
+
+.landing-hero .lh-fill-food { background: #e5a443; }
+.landing-hero .lh-fill-travel { background: #4a86d6; }
+.landing-hero .lh-fill-bills { background: #7f72d1; }
+
+@media (max-width: 700px) {
+    .landing-hero { padding: 3rem 1rem 2.5rem; }
+    .landing-hero .lh-subtitle { font-size: 1.1rem; }
+    .landing-hero .lh-actions { margin-bottom: 3rem; }
+    .landing-hero .lh-stats { grid-template-columns: 1fr; }
+}
