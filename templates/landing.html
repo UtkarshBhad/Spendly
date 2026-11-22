@@ -23,7 +23,7 @@
     </p>
     <div class="lh-actions">
         <a href="{{ url_for('register') }}" class="lh-btn">Create free account</a>
-        <a href="#how-it-works" class="lh-btn">See how it works</a>
+        <button type="button" class="lh-btn" id="how-it-works-btn">See how it works</button>
     </div>
 
     <div class="lh-window">
@@ -62,6 +62,20 @@
     </div>
 </section>
 
+<div class="video-modal" id="video-modal" role="dialog" aria-modal="true" aria-label="How Spendly works" hidden>
+    <div class="video-modal-content">
+        <button type="button" class="video-modal-close" id="video-modal-close" aria-label="Close video">&times;</button>
+        <div class="video-modal-frame">
+            <!-- Replace the video ID in data-src with your own YouTube video -->
+            <iframe id="video-modal-iframe"
+                    data-src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&rel=0"
+                    title="How Spendly works"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
 <section class="features">
     <div class="features-inner">
         <div class="feature-card">
@@ -90,4 +104,38 @@
     </div>
 </section>
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+    (function () {
+        var openBtn = document.getElementById('how-it-works-btn');
+        var modal = document.getElementById('video-modal');
+        var closeBtn = document.getElementById('video-modal-close');
+        var iframe = document.getElementById('video-modal-iframe');
+
+        function openModal() {
+            iframe.src = iframe.dataset.src;   // load (and autoplay) on open
+            modal.hidden = false;
+            document.body.style.overflow = 'hidden';
+            closeBtn.focus();
+        }
+
+        function closeModal() {
+            modal.hidden = true;
+            iframe.src = '';                    // unload iframe so the video stops
+            document.body.style.overflow = '';
+            openBtn.focus();
+        }
+
+        openBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) closeModal();   // click on the backdrop
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !modal.hidden) closeModal();
+        });
+    })();
+</script>
 {% endblock %}
